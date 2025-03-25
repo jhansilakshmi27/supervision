@@ -1,0 +1,66 @@
+<!-- Custom Footer Sections -->
+<div class="md-footer-custom">
+  <div class="md-grid md-footer-custom__inner">
+    <div class="md-footer-custom__section">
+      <h3>Supervision</h3>
+      <ul>
+        <li><a href="{{ '/' | url }}">Home</a></li>
+        <li><a href="{{ 'cookbooks' | url }}">Cookbooks</a></li>
+        <li><a href="{{ 'changelog' | url }}">Release Notes</a></li>
+      </ul>
+    </div>
+
+    <div class="md-footer-custom__section">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="{{ 'how_to/detect_and_annotate' | url }}">Tutorials</a></li>
+        <li><a href="{{ 'detection/core' | url }}">API Reference</a></li>
+        <li><a href="https://roboflow.github.io/cheatsheet-supervision/" target="_blank">Cheatsheet</a></li>
+      </ul>
+    </div>
+
+    <div class="md-footer-custom__section">
+      <h3>Community</h3>
+      <ul>
+        <li><a href="{{ 'contributing' | url }}">Contribute</a></li>
+        <li><a href="{{ 'code_of_conduct' | url }}">Code of Conduct</a></li>
+        <li><a href="https://discord.gg/GbfgXGJ8Bk" target="_blank">Discord</a></li>
+      </ul>
+    </div>
+
+    <div class="md-footer-custom__section">
+      <h3>Roboflow</h3>
+      <ul>
+        <li><a href="https://roboflow.com" target="_blank">Website</a></li>
+        <li><a href="https://blog.roboflow.com" target="_blank">Blog</a></li>
+        <li><a href="https://github.com/roboflow" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Copyright and Social Icons -->
+<div class="md-footer-meta">
+  <div class="md-footer-meta__inner md-grid">
+    <div class="md-footer-copyright">
+      <div class="md-footer-copyright__highlight">
+        {{ config.copyright }}
+      </div>
+    </div>
+    {% if config.extra.social %}
+    <div class="md-footer-social">
+      {% for social in config.extra.social %}
+        <a
+          href="{{ social.link }}"
+          target="_blank"
+          rel="noopener"
+          title="{{ social.icon | replace('fontawesome/brands/', '') }}"
+          class="md-footer-social__link"
+        >
+          {% include ".icons/" ~ social.icon ~ ".svg" %}
+        </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>

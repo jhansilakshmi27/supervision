@@ -1,31 +1,151 @@
 :root {
-  /* Default to light theme */
-  --md-primary-fg-color:        #8315F9;
-  --md-accent-fg-color:         #00FFCE;
+  --footer-primary: #1976d2;
+  --footer-dark: #1565c0;
+  --footer-text: #ffffff;
+  --footer-link-hover: #bbdefb;
+  --footer-border: rgba(255, 255, 255, 0.1);
 }
 
-body.light {
-  /* Light theme */
-  --md-text-color:              #000000;
-  --md-h2-color:                #000000;
+.md-footer {
+  background: var(--footer-primary);
+  color: var(--footer-text);
+  border-top: 1px solid var(--footer-border);
 }
 
-body.dark {
-  /* Dark theme */
-  --md-text-color:              #FFFFFF;
-  --md-h2-color:                #add8e6;
+.md-footer-custom {
+  padding: 1.5rem 0;
+  background: var(--footer-primary);
 }
 
-body.light .md-content *, body.dark .md-content * {
-  color: var(--md-text-color) !important;
+.md-footer-custom__inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-body[data-md-url$="/cookbooks/"] .md-sidebar--primary,
-body[data-md-url$="/cookbooks/"] .md-sidebar--secondary {
-    display: none;
+.md-footer-custom__section h3 {
+  margin: 0 0 1rem 0;
+  color: var(--footer-text);
+  font-weight: 600;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
-body[data-md-url$="/cookbooks/"] .md-content {
-    margin-left: 0;
-    width: 100%;
+.md-footer-custom__section h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--footer-link-hover);
+}
+
+.md-footer-custom__section ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-footer-custom__section li {
+  margin-bottom: 0.5rem;
+}
+
+.md-footer-custom__section a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.2s ease;
+  font-size: 0.9em;
+  display: inline-block;
+  padding: 0.15rem 0;
+}
+
+.md-footer-custom__section a:hover {
+  color: var(--footer-link-hover);
+  transform: translateX(3px);
+  text-decoration: none;
+}
+
+.md-footer-meta {
+  background: var(--footer-dark);
+  padding: 0.8rem 0;
+}
+
+.md-footer-meta__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.md-footer-copyright {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85em;
+}
+
+.md-footer-social {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.md-footer-social__link {
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+  display: flex;
+}
+
+.md-footer-social__link:hover {
+  color: var(--footer-link-hover);
+  transform: translateY(-2px);
+}
+
+.md-footer-social__link svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+@media screen and (max-width: 760px) {
+  .md-footer-custom {
+    padding: 1.2rem 0;
+  }
+  
+  .md-footer-custom__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+  
+  .md-footer-meta__inner {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    padding: 0.5rem 1rem;
+  }
+  
+  .md-footer-social {
+    order: -1;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .md-footer-custom__inner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .md-footer-custom__section {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--footer-border);
+  }
+  
+  .md-footer-custom__section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 }
