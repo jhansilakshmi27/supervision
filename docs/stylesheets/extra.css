@@ -89,27 +89,40 @@
   font-size: 0.85em;
 }
 
+/* ================== */
+/* WHITE SOCIAL ICONS */
+/* ================== */
 .md-footer-social {
   display: flex;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
 .md-footer-social__link {
-  color: rgba(255, 255, 255, 0.8);
-  transition: all 0.2s ease;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .md-footer-social__link:hover {
-  color: var(--footer-link-hover);
-  transform: translateY(-2px);
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .md-footer-social__link svg {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  transition: transform 0.3s ease;
+  fill: currentColor; /* Inherits the white color */
+  filter: brightness(0) invert(1); /* Fallback for any black icons */
 }
-
 @media screen and (max-width: 760px) {
   .md-footer-custom {
     padding: 1.2rem 0;
